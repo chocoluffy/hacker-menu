@@ -7,6 +7,7 @@ Website: [https://hackermenu.io](https://hackermenu.io).
 
 Screenshot:
 ![Hacker Menu Screenshot](images/screenshot.png)
+
 ## Installation
 
 Download the latest build for your platform from [releases](https://github.com/jingweno/hacker-menu/releases). We only have OSX build now, and we're working Windows and Linux builds. Feel free to contribute if you can't wait :heart:.
@@ -24,9 +25,17 @@ Other useful tasks:
 
 ```bash
 $ npm test # runs tests
-$ npm run watch # watches and rebuilds assets
-$ npm run release # builds and packages the Mac app
+$ npm run build # builds the app
+$ npm run watch # watches and rebuilds the app
+$ npm run package # packages the Mac app
+$ npm run release # packages and zips the Mac app, it requires a cert to sign the app
 ```
+
+# Roadmap
+
+See [issues](https://github.com/jingweno/hacker-menu/issues?q=is%3Aopen+is%3Aissue+label%3Afeature).
+
+
 ## License
 
 See [LICENSE](https://github.com/jingweno/hacker-menu/blob/master/LICENSE).
