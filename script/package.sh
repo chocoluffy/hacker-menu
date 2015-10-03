@@ -19,7 +19,7 @@ var opts = {
   ]
 }
 if (!process.env.CI) {
-  opts.sign = 'Developer ID Application: Jingwen Ou'
+  opts.sign = 'Developer ID Application: xueshi qiao'
 }
 packager(opts, function done (err, appPaths) {
   if (err) {
