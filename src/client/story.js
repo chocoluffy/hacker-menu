@@ -9,20 +9,10 @@ export default class Story extends React.Component {
     this.props.onUrlClick(url)
   }
 
-  handleYurlOnClick (e) {
-    e.preventDefault()
-    this.openUrl(this.props.story.yurl)
-  }
-
-  handleByOnClick (e) {
-    e.preventDefault()
-    this.openUrl(this.props.story.by_url)
-  }
-
   handleUrlClick (e) {
     e.preventDefault()
     this.markAsRead()
-    this.openUrl(this.props.story.url)
+    this.openUrl(this.props.story.share_url)
   }
 
   render () {
@@ -35,22 +25,11 @@ export default class Story extends React.Component {
     }
     return (
       <div className={storyState}>
-        <span className='badge clickable' onClick={this.handleYurlOnClick.bind(this)}>{story.score}</span>
+        <img className='image' src={story.image}>
         <div className='media-body'>
           <span className='story-title clickable' onClick={this.handleUrlClick.bind(this)}>{story.title}</span>
-          <span className='story-host'>{story.host}</span>
-          <p className='story-poster'>
-            <span className='icon-comment clickable' onClick={this.handleYurlOnClick.bind(this)}>
-              {story.descendants}
-            </span> &ndash;&nbsp;
-            <span className='clickable' onClick={this.handleByOnClick.bind(this)}>
-              {story.by}
-            </span> &ndash;&nbsp;
-            <span className='clickable' onClick={this.handleYurlOnClick.bind(this)}>
-              {story.timeAgo}
-            </span>
-          </p>
         </div>
+          </img>
       </div>
     )
   }

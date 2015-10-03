@@ -3,6 +3,7 @@ import Shell from 'shell'
 import Server from 'electron-rpc/server'
 import Path from 'path'
 import _ from 'lodash'
+//import BroswerWindow from 'broswer-window'
 import AutoUpdateManager from './server/auto_update_manager'
 import StoryManager from './server/story_manager'
 import TrayManager from './server/tray_manager'
@@ -45,7 +46,7 @@ menu.on('after-create-window', function () {
 })
 
 menu.on('ready', function () {
-  menu.tray.setToolTip('Hacker Menu')
+  menu.tray.setToolTip('Zhihu Daily Menu')
 
   var autoUpdateManager = new AutoUpdateManager(menu.app.getVersion(), logger)
   autoUpdateManager.on('update-available', function (releaseVersion) {
@@ -72,7 +73,7 @@ menu.on('ready', function () {
 
         var body = {}
         body[type] = stories
-
+        console.log("stories: " + JSON.stringify(stories));
         next(null, body)
       })
     })

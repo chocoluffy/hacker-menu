@@ -83,7 +83,7 @@ export default class StoryBox extends React.Component {
     }
 
     self.client.request(selected, storycb)
-    self.client.on(selected, storycb)
+    //self.client.on(selected, storycb)
   }
 
   render () {

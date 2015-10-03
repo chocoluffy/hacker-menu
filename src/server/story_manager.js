@@ -6,6 +6,7 @@ import _ from 'lodash'
 import async from 'async'
 import StoryType from '../model/story_type'
 import StoryManagerStatus from '../model/story_manager_status'
+import request from 'request'
 
 export default class StoryManager extends Events.EventEmitter {
   constructor (maxNumOfStories, cache) {
@@ -63,19 +64,16 @@ export default class StoryManager extends Events.EventEmitter {
       callback(err)
     }
 
-    var success = function (storyIds) {
+    request('http://news.at.zhihu.com/api/2/news/latest', function (error, response, body) {
       self.emit('story-manager-status', { type: type, status: StoryManagerStatus.SYNCING_STATUS })
-      async.map(storyIds.val(), self.fetchStory.bind(self), function (err, stories) {
-        callback(err, stories)
-        if (err) {
-          return
-        }
-
+      if (!error && response.statusCode == 200) {
+        var result = JSON.parse(body);
+        callback(null, result.news);
         self.emit('story-manager-status', { type: type, status: StoryManagerStatus.UPDATED_STATUS })
-      })
-    }
-
-    self.fb.child(self.getChildName(type)).limitToFirst(self.maxNumOfStories).once('value', success, error)
+      } else {
+        callback(error, null);
+      }
+    });
   }
 
   watch (type, callback) {

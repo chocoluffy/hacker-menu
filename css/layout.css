@@ -110,13 +110,17 @@ body {
   border-bottom: 0;
 }
 
+.table-view-cell {
+  padding: 0 0 0 0;
+}
+
 .story {
-  border-left: 4px solid #ff6601;
+  border-left: 4px solid #009CD9;
   color: inherit;
-  margin: -11px -65px -11px -15px;
+  /*margin: -11px -65px -11px -15px;*/
   overflow: hidden;
-  padding: inherit;
   position: relative;
+  padding: 10px 10px 10px 10px;
 }
 
 .story:hover {
@@ -124,18 +128,30 @@ body {
 }
 
 .story.read {
-  border-left-color: #bdbdbd;
+  border-left-color: lightgray;
 }
 
 .story .badge {
   background: #f0f0f0;
   font-size: .85rem;
   position: absolute;
-  right: 15px;
+  right: 10px;
   top: 27%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+.story .image {
+  float: left;
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.story .media-body {
+  align-items: baseline;
 }
 
 .story-title {
@@ -168,6 +184,7 @@ body {
 /* footer */
 .bar-footer {
   background: #f0f0f0;
+  height: 25px;
 }
 
 .bar .btn {
